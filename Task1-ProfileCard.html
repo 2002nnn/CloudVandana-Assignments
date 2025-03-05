@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Profile Card</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        .profile-card {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            text-align: center;
+            width: 320px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+            position: relative;
+            animation: fadeIn 1s ease-out;
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+        .profile-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 25px rgba(0, 0, 0, 0.4);
+        }
+        .profile-pic {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            margin-bottom: 15px;
+            border: 5px solid #667eea;
+            transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+        .profile-pic:hover {
+            border-color: #007bff;
+            box-shadow: 0 0 15px rgba(0, 123, 255, 0.6);
+        }
+        .name {
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+            transition: color 0.3s ease-in-out;
+        }
+        .profile-card:hover .name {
+            color: #007bff;
+        }
+        .designation {
+            font-size: 18px;
+            color: #555;
+            margin-bottom: 10px;
+        }
+        .bio {
+            font-size: 14px;
+            color: #666;
+            margin: 10px 0 15px;
+            line-height: 1.6;
+            transition: opacity 0.3s ease-in-out;
+        }
+        .profile-card:hover .bio {
+            opacity: 0.8;
+        }
+        .social-icons a {
+            margin: 0 10px;
+            color: #555;
+            font-size: 22px;
+            transition: transform 0.3s ease-in-out, color 0.3s ease-in-out;
+            text-decoration: none;
+            display: inline-block;
+        }
+        .social-icons a:hover {
+            color: #007bff;
+            transform: scale(1.4);
+        }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/js/all.min.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="profile-card">
+        <img src="https://tse4.mm.bing.net/th?id=OIP.AlIScK6urTegkZ178dAAGgHaHa&pid=Api&P=0&h=180" alt="Profile Picture" class="profile-pic">
+        <div class="name">Tony Hearn</div>
+        <div class="designation">Full Stack Developer</div>
+        <p class="bio">Creating seamless and beautiful web experiences with modern technologies.</p>
+        <div class="social-icons">
+            <a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook"></i></a>
+            <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+            <a href="https://www.linkedin.com/in" target="_blank"><i class="fab fa-linkedin"></i></a>
+            <a href="https://github.com" target="_blank"><i class="fab fa-github"></i></a>
+        </div>
+    </div>
+</body>
+</html>

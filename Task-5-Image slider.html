@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Slider</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: #f4f4f4;
+            flex-direction: column;
+        }
+        .slider-container {
+            position: relative;
+            width: 400px;
+            height: 250px;
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+        .btn-container {
+            margin-top: 10px;
+        }
+        button {
+            padding: 8px 12px;
+            margin: 5px;
+            border: none;
+            cursor: pointer;
+            border-radius: 4px;
+            color: white;
+            font-size: 16px;
+            transition: 0.3s;
+        }
+        .prev-btn {
+            background: #007bff;
+        }
+        .next-btn {
+            background: #28a745;
+        }
+        .prev-btn:hover {
+            background: #0056b3;
+        }
+        .next-btn:hover {
+            background: #218838;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="slider-container">
+        <img id="slider" src="" alt="Image Slider">
+    </div>
+    <div class="btn-container">
+        <button class="prev-btn" onclick="prevImage()">Previous</button>
+        <button class="next-btn" onclick="nextImage()">Next</button>
+    </div>
+
+    <script>
+        const images = [
+            "https://tse3.mm.bing.net/th?id=OIP.jaO7NMRgG5itL3I7ajAiDgHaEK&pid=Api&P=0&h=180",
+            "https://tse4.mm.bing.net/th?id=OIP.T-AKigwxk9-dTmJ7zzaDiwHaEK&pid=Api&P=0&h=180",
+            "https://tse4.mm.bing.net/th?id=OIP.In18sU1LEPmT2XZTecBotQHaE8&pid=Api&P=0&h=180",
+            "https://tse1.mm.bing.net/th?id=OIP.lAk3L_5K4s3pNevnpEePCAHaEu&pid=Api&P=0&h=180"
+        ];
+
+        let currentIndex = 0;
+        const slider = document.getElementById("slider");
+
+        function updateImage() {
+            slider.src = images[currentIndex];
+        }
+
+        function nextImage() {
+            currentIndex = (currentIndex + 1) % images.length;
+            updateImage();
+        }
+
+        function prevImage() {
+            currentIndex = (currentIndex - 1 + images.length) % images.length;
+            updateImage();
+        }
+
+        // Initialize slider
+        updateImage();
+    </script>
+
+</body>
+</html>
